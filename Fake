@@ -1,11 +1,6 @@
 (function () {
-  if (window.__FakesBitoV5_LOADED__) {
-    console.log('Fakes Bito V5 já carregado.');
-    return;
-  }
-  window.__FakesBitoV5_LOADED__ = true;
+  if (document.getElementById('fakesbito-ui')) return;
 
-  // === Interface ===
   const style = `
     #fakesbito-ui {
       position: fixed; top: 50px; right: 50px;
@@ -75,11 +70,9 @@
     const coords = coordsRaw.split('\n').map(c => c.trim()).filter(c => c);
 
     alert("Bot iniciado com " + coords.length + " coordenadas.");
-
     iniciarAtaques(sp, sw, ax, scout, cat, coords, tempo);
   };
 
-  // === Função de ataque simplificada ===
   function iniciarAtaques(sp, sw, ax, scout, cat, coords, tempo) {
     let i = 0;
 
@@ -95,7 +88,6 @@
 
       console.log(`Enviando ataque para ${x}|${y}`);
 
-      // Preenche os campos de tropas, simula envio (você pode adaptar ao HTML real do jogo)
       document.getElementsByName('x')[0].value = x;
       document.getElementsByName('y')[0].value = y;
       document.getElementsByName('spy')[0].value = scout;
@@ -104,11 +96,8 @@
       document.getElementsByName('sword')[0].value = sw;
       document.getElementsByName('axe')[0].value = ax;
 
-      // Simula clique no botão "OK" (ajuste conforme o botão real do jogo)
       const botao = document.querySelector("input[type='submit']");
-      if (botao) {
-        botao.click();
-      }
+      if (botao) botao.click();
 
       i++;
       setTimeout(enviarProxima, tempo);
