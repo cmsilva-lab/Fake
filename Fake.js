@@ -28,7 +28,7 @@
   const html = `
     <div id="nukes-ui">
       <div id="nukes-close">X</div>
-      <h3>Fakes Bito V5</h3>
+      <h3>Nukes</h3>
       <label>Lanceiros (sp):</label>
       <input type="number" id="sp" value="0">
       <label>Espadas (sw):</label>
